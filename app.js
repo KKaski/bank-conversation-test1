@@ -32,14 +32,17 @@ var conversation = new Conversation({
   // After  that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
   // username: '<username>',
   // password: '<password>',
-  url: 'https://gateway.watsonplatform.net/conversation/api',
+  //url: 'https://gateway.watsonplatform.net/conversation/api',
+  url:'https://bank-conversation-nr.mybluemix.net/conversation-proxy',
   version_date: '2016-10-21',
   version: 'v1'
 });
 
 // Endpoint to be call from the client side
 app.post('/api/message', function(req, res) {
-  var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
+  //var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
+
+/* 
   if (!workspace || workspace === '<workspace-id>') {
     return res.json({
       'output': {
@@ -47,6 +50,8 @@ app.post('/api/message', function(req, res) {
       }
     });
   }
+  */
+  
   var payload = {
     workspace_id: workspace,
     context: req.body.context || {},
