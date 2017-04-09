@@ -155,6 +155,7 @@ var ConversationPanel = (function() {
 
   // Constructs new DOM element from a message payload
   function buildMessageDomElements(newPayload, isUser) {
+   
     var textArray = isUser ? newPayload.input.text : newPayload.output.text;
     if (Object.prototype.toString.call( textArray ) !== '[object Array]') {
       textArray = [textArray];
@@ -183,6 +184,15 @@ var ConversationPanel = (function() {
             }]
           }]
         };
+
+        //If the message contains links we populate additional child element for that
+        if (typeof newPayload.output != 'undefined' && typeof newPayload.output.link != 'undefined')
+          messageJson.children[0].children[0].children.push({
+            'tagName': 'a',
+            'text': currentText,
+            "attributes": [{ name:"href", value: newPayload.output.link}]
+          });
+
         messageArray.push(Common.buildDomElement(messageJson));
       }
     });
