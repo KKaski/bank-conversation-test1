@@ -1,0 +1,15 @@
+---
+declared-services:
+  Conversation-demo:
+    label: conversation
+    plan: free
+applications:
+- name: bank-conversation-test1
+  command: npm start
+  path: .
+  memory: 256M
+  instances: 1
+  services:
+  - bank-conversation-demo
+  env:
+    NPM_CONFIG_PRODUCTION: false
