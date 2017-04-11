@@ -50,7 +50,7 @@ request(options)
 
 /**
  * Updates the response text using the intent confidence
- * @param  {Object} input The request to the Conversation service
+ * @param  {Object} input The request to the Conversation service 
  * @param  {Object} response The response from the Conversation service
  * @return {Object}          The response with the updated message
  */
