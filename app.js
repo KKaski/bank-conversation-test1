@@ -34,7 +34,7 @@ app.post('/api/message', function(req, res) {
 const options = {  
   method: 'POST',
   uri: 'https://bank-conversation-nr.mybluemix.net/conversation-proxy',
-  json: req.body.input || {}
+  json: req.body || {},
 }
  //Call the proxy in node-red
 request(options)  
