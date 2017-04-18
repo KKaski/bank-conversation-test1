@@ -33,7 +33,7 @@ app.post('/api/message', function(req, res) {
 //This is for the proxy call instead of SDK
 const options = {  
   method: 'POST',
-  uri: 'https://bank-conversation-nr.mybluemix.net/conversation-proxy',
+  uri: 'https://bank-conversation-nr-dev.mybluemix.net/conversation-proxy',
   json: req.body || {},
 }
  //Call the proxy in node-red
