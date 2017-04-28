@@ -27,13 +27,17 @@ var Api = (function() {
 
   // Send a message request to the server
   function sendRequest(text, context) {
+    //Extract language
+    var urlParams = new URLSearchParams(window.location.search);
+    var lang = urlParams.get('lang');
+
     // Build request payload
     var payloadToWatson = {};
-    if (text) {
       payloadToWatson.input = {
-        text: text
+        text: text,
+        lang:lang
       };
-    }
+    
     if (context) {
       payloadToWatson.context = context;
     }
