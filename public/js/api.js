@@ -25,11 +25,25 @@ var Api = (function() {
     }
   };
 
+  function getParameter(paramName) {
+    var searchString = window.location.search.substring(1),
+      i, val, params = searchString.split("&");
+
+    for (i=0;i<params.length;i++) {
+      val = params[i].split("=");
+      if (val[0] == paramName) {
+        return val[1];
+      }
+    }
+    return null;
+  }
+
   // Send a message request to the server
   function sendRequest(text, context) {
     //Extract language
-    var urlParams = new URLSearchParams(window.location.search);
-    var lang = urlParams.get('lang');
+    //var urlParams = new URLSearchParams(window.location.search);
+    //var lang = urlParams.get('lang');
+    var lang = getParameter('lang');
 
     // Build request payload
     var payloadToWatson = {};
